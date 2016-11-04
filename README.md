@@ -1,12 +1,11 @@
 # STC-2016
-
 ***
 Project for class of Sci &amp; Tech Computing(STC)  
 Dept. of Statistics & Data Science  
 Texas Advanced Computing Center(TACC)  
 The University of Texas at Austin.  
 
-### Magnetic field oscillation in 3D adiabatic slower system for cold atom physics
+# Magnetic field oscillation in 3D adiabatic slower system for cold atom physics
 ***
 ### About
 
