@@ -6,19 +6,19 @@ Dept. of Statistics & Data Science
 Texas Advanced Computing Center(TACC)  
 The University of Texas at Austin.  
 
-## Magnetic field oscillation in 3D adiabatic slower system for cold atom physics
+### Magnetic field oscillation in 3D adiabatic slower system for cold atom physics
 ***
 ### About
 
 ---
 Adiabatic slower is a facility that consist of hundreds of overlapping Anti-Helmholtz coils, which is used to slow atoms from ~500 m/s down to ~0 m/s to create ultra bright cold atom source in atomic physics.  
 It is realized by activating spatially overlapped magnetic traps with a overlapping time sequence, thus create an effective co-moving trap to slow down atoms.As shown in:  
-<img src="https://github.com/SuperYuLu/STC-2016/blob/master/img/AntiHelmhotzSym.png" width="400">
-<img src="https://github.com/SuperYuLu/STC-2016/blob/master/img/AntiHelmhotz3DHorizental.png" width="400">
-<img src="https://github.com/SuperYuLu/STC-2016/blob/master/img/3Dslice.gif" width="400">
-<img src="https://github.com/SuperYuLu/STC-2016/blob/master/img/1D.gif" width="400">
 
-While its performance has been highly evaluated in the experiment [^1], the optimization hasn't been well discussed in any published articles. One of the key feature is the magnetic field oscillation during the trasition of traps, which is related to the lose rate, temperature, density of atoms being slowd.  
+
+<img src="https://github.com/SuperYuLu/STC-2016/blob/master/img/AntiHelmhotz3DHorizental.png" width="350">
+<img src="https://github.com/SuperYuLu/STC-2016/blob/master/img/3Dslice.gif" width="350">
+
+While its performance has been highly evaluated in the [experiment](http://iopscience.iop.org/article/10.1088/1367-2630/9/4/096), the optimization hasn't been well discussed in any published articles. One of the key feature is the magnetic field oscillation during the trasition of traps, which is related to the lose rate, temperature, density of atoms being slowd.  
 Here we propose a simulation approach to this problem, we will discuss the oscillation of magnetic field in adiabatic slower under different conditions, and try to find the optimized operating parameters for a given adiabatic slower setup.  
 
 ### Github links
