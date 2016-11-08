@@ -32,6 +32,7 @@ Project weekly plan: <https://github.com/SuperYuLu/STC-2016/projects/1>
 **/src**: source code folder.  
 **/bin**: executable code folder.  
 **/doc**: docs such proposal, report, etc.  
+**/img**: images folder.  
 
 
 ### How to contribute
