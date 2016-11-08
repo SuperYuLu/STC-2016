@@ -32,6 +32,7 @@ Project weekly plan: <https://github.com/SuperYuLu/STC-2016/projects/1>
 **/src**: source code folder.  
 **/bin**: executable code folder.  
 **/doc**: docs such proposal, report, etc.  
+**/img**: images folder.  
 
 
 ### How to contribute
@@ -57,4 +58,6 @@ These include Unix (beyond beginning), compilers,building software packages(make
 * Data Intensive Computing:basic efficient IO,parallel file systems,advanced data formats(HDF5,NetCDF), etc.
 * Visualiza&on:Introduction to data structures,formats and visualization tool(Gnuplot,ParaView,etc.)
 
-[^1]: [U Even, M. G. Raizen, et. al., New Journal of Physics, Volume 9, 2007](http://iopscience.iop.org/article/10.1088/1367-2630/9/4/096)http://iopscience.iop.org/article/10.1088/1367-2630/9/4/096
+### References
+---
+[U Even, M. G. Raizen, et. al., New Journal of Physics, Volume 9, 2007](http://iopscience.iop.org/article/10.1088/1367-2630/9/4/096)http://iopscience.iop.org/article/10.1088/1367-2630/9/4/096
