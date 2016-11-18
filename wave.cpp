@@ -11,7 +11,7 @@ int main() {
     double cycle = 2*M_PI;
     double arr[n];
     int input;
-    cout << "choose one wave for input, one for sine, two for triangle, three for rectangle" << endl;
+    cout << "choose one wave for input, one for sine, two for triangle: " << endl;
     cin >> input;
 
     // sine wave
@@ -20,7 +20,7 @@ int main() {
     	for(int i  = 0; i < n; i++)
     	{
 			arr[i] = abs(sin(10*i*cycle/n));
-    		cout << arr[i] << endl;
+    		//cout << arr[i] << endl;
     	}
 	}
 
@@ -48,7 +48,7 @@ int main() {
 				else
 					arr[i+1] = 500;
 
-				cout << arr[i] << endl;
+				//cout << arr[i] << endl;
 			}
 	}
 
