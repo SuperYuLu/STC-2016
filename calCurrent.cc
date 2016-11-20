@@ -36,5 +36,3 @@ double calCurrent(string type, double t){
   }
   return(Imax);
 }
-
-  
