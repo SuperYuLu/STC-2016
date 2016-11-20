@@ -5,6 +5,7 @@ double zStep;  // Spatial step(resolution)
 double tStep;  // Time step(resolution)
 double tPeirod; // Current pulse period
 double tOverlapRatio; // The time overlap = tOverlapRatio * tPeriod
+double Imax; // Current maxmium
 int geoWindings, totTraps;	
 
 
