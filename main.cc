@@ -1,4 +1,7 @@
-#include<whatever>
+#include<iostream>
+#include<cmath>
+#include<string>
+#define _USE_MATH_DEFINES
 
 double geoR, geoAspectRatio,geoOverlapRatio;
 double zStep;  // Spatial step(resolution)
@@ -6,7 +9,8 @@ double tStep;  // Time step(resolution)
 double tPeirod; // Current pulse period
 double tOverlapRatio; // The time overlap = tOverlapRatio * tPeriod
 double Imax; // Current maxmium
-int geoWindings, totTraps;	
+int geoWindings, totTraps;
+
 
 
 // ======================== Define class traps here ====================================
@@ -18,12 +22,19 @@ class traps{
   double calField(double currI);
 };
 
-traps :: traps(){
+traps :: traps(int num){
   /* Constructor goes here
-   no returns */
+     Based on given trap number, calculate the trap center position, 
+     and front/back coil position
+     no returns */
+  trapNum = num; // the 1st trap num = 0
+  centerPos = geoOverlapRatio * geoR * num;
+  frontCoil = centerPos + geoAspectRatio * geoR * 0.5;
+  backCoil = centerPos - geoAspectRatio * geoR * 0.5;
+  
 }
 
-double traps :: calCurrent( double t){
+double traps :: calCurrent(string type, double t){
   /* Calculate current value (currI)  in the coil at time t
      with the sape given is 'shape': shape = "sin" or shape="triangle"
      one has to consider the on time of a specific trap, which can be 
@@ -31,7 +42,7 @@ double traps :: calCurrent( double t){
      return(currI) */
 }
 
-double traps :: calField(double currI){
+double traps :: calField(double currI, double pos){
   /* Calculate the magnemtic field based on trap geometry 
      return a 2D [Nx2]array tField: 
      the 1st column is for position(absolute position)
