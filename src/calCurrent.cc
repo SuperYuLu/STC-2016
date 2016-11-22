@@ -1,7 +1,7 @@
-#include <cmath>
-#include <iostream>
-#include <string>
-#define _USE_MATH_DEFINES
+// #include <cmath>
+// #include <iostream>
+// #include <string>
+// #define _USE_MATH_DEFINES
 
 //using namespace std;
 //double Imax = 500;
@@ -34,5 +34,5 @@ double calCurrent(string type, double t){
   else{
     cout << "Current wave type not found" << endl;
   }
-  return(Imax);
+  return(currI);
 }

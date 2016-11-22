@@ -8,7 +8,7 @@ double calField(double currI, double pos){
   
   double field;
   double u0 = 1.256637e-6; // Magnetic constant
-  field = u0 * currI * geoR**2 * 0.5 / (((pos - frontCoil)**2 + geoR**2 )**(3/2));
+  field = u0 * currI * geoR**2 * 0.5 / (((pos - frontCoil)**2 + geoR**2 )**(3/2) - ((pos - backCoil)**2 + geoR**2 )**(3/2));
   return(field);
 }
   
