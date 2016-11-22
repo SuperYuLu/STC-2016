@@ -3,13 +3,22 @@
 #include<string>
 #define _USE_MATH_DEFINES
 
-double geoR, geoAspectRatio,geoOverlapRatio;
-double zStep;  // Spatial step(resolution)
-double tStep;  // Time step(resolution)
-double tPeirod; // Current pulse period
-double tOverlapRatio; // The time overlap = tOverlapRatio * tPeriod
-double Imax; // Current maxmium
-int geoWindings, totTraps;
+double geoR = 5e-3; // Radius of coil, 5 mm
+double geoAspectRatio = 2; // Space of the two coils for a single trap, with respect to geoR
+double geoOverlapRatio = 0.5; // geoOverlapRatio 0~1, 0 for not overlap, 1 for totally overlap, 0.5 for half overlap
+double zStep = 0.2 * geoR;  // Spatial step(resolution)
+double tPeriod = 50e-6; // Current pulse period, 50 us
+double tStep = tPeriod / 20.0; // Time step(resolution)
+double tOverlapRatio = 0.5; // The time overlap = tOverlapRatio * tPeriod
+double Imax = 500; // Current maxmium = 500 A
+int geoWindings = 8;
+int totTraps = 3;
+
+// =============== Declare all fuctions (this will go seperate file later)==============
+double calCurrent(string type, double t);
+double calField(double currI, double pos);
+double findFieldMin(double tField[]);
+double findFieldMax(double tField[]);
 
 
 
@@ -34,25 +43,26 @@ traps :: traps(int num){
   
 }
 
-double traps :: calCurrent(string type, double t){
+
+double traps :: calCurrent(string type, double t) = calCurrent(string type, double t);
   /* Calculate current value (currI)  in the coil at time t
      with the sape given is 'shape': shape = "sin" or shape="triangle"
      one has to consider the on time of a specific trap, which can be 
      calculated from trapNum, tPeriod, tOverlapRatio.
      return(currI) */
-}
 
-double traps :: calField(double currI, double pos){
+
+double traps :: calField(double currI, double pos) = calField(double currI, double pos);
   /* Calculate the magnemtic field based on trap geometry 
      return a 2D [Nx2]array tField: 
      the 1st column is for position(absolute position)
      the 2nd column is for calculated field.
   */
-}
+
 
 // ==================== Functions to be used ==========================================
 
-double findFieldMin(double tField[]){
+double findFieldMin(double tField[]) = findFieldMin(double tField[]);
   /* Find the trap minimun and corresponding position
      return a 2D[Nx3] array fieldMin:
      the 1st column is time;
@@ -60,13 +70,12 @@ double findFieldMin(double tField[]){
      the 3rd column is field min
      return(fieldMin)
   */
-}
 
-double findFieldMax(double tField[]){
+double findFieldMax(double tField[]) = findFieldMax(double tField[]);
   /* Same as above, may be we could combine these two equations into one
      return(fieldMax)
   */
-}
+
 
 // ============================== main part of program =================================
 
