@@ -1,13 +1,9 @@
-// #include <cmath>
-// #include <iostream>
-// #include <string>
-// #define _USE_MATH_DEFINES
+// calCurrent.cc
+#include <cmath>
+#include "const.h"
+#include "traps.h"
 
-//using namespace std;
-//double Imax = 500;
-//double tPeriod = 10;
-
-double calCurrent(string type, double t){
+double traps :: calCurrent(double t, int shape){
   /*
     Function used to genetrate the current according to
     given wave type and time;
@@ -15,24 +11,18 @@ double calCurrent(string type, double t){
     Tested by Yu on 2016/11/20
   */
   double currI;
+ 
   double tt;
   tt = fmod(t, tPeriod);
   
-  if(type == "sine"){
-    currI = Imax * sin(tt);
-  }
-  
-  else if (type == "triangle"){
+  if(shape == 1) currI = Imax * sin(tt);
+  else if (shape == 2){
     if(tt <= tPeriod / 2.0){
       currI = 2 * Imax / tPeriod * tt;
     }
     else{
       currI = 2 * Imax / tPeriod * (tPeriod - tt);
     }
-  }
-
-  else{
-    cout << "Current wave type not found" << endl;
   }
   return(currI);
 }

@@ -6,10 +6,14 @@
 #include "main.h"
 
 int mian(){
-	traps alltraps[totTraps]; // asign arry alltraps to store all trap info
-	field[totTraps][maxTime][maxPos] // initialize 3D field array with trap number, time and position
-	totalField[maxTime][maxPos] // initialize 2D array with time and position by adding time and position for each trap
-	
+  double totTime = totTraps * tPeriod;
+  double totDist = totTraps * geoAspectRatio * geoR;
+
+  traps alltraps[totTraps]; // asign arry alltraps to store all trap info
+  totalField[int(totTime / tStep) + 1][int(totDist / zStep) + 1]; // initialize 2D array with time and position by adding time and position for each trap
+  for(int i = 1; i < totTraps; i++){
+    alltraps[i].initTrap(i+1);
+  }
 	for(i=1; i < totTraps; i++){
 	  
 		for(int t = 0; t < sometime; t=t+tStep){
