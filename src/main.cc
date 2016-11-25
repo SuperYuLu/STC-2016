@@ -19,17 +19,17 @@ int mian(){
   }
 
   
-  for(int i=0; i < int(totTime / tStep); i++){
+  for(int i=0; i < int(totTime / tStep) + 1; i++){
     t = i * tStep;
     for (int j = 0; j < totTraps; j++) if(alltraps[j].isOn(t)) alltraps[j].genFieldMatrix();
-    calTotalField(traps *alltraps, double *totalField);
+    calTotalField(traps *alltraps, (double *)totalField, int(totDist / zStep) + 1);
     
     
 
     
-    for(int t = 0; t < sometime; t=t+tStep){
+    for(double t = 0.0; t < sometime; t=t+tStep){
 			/* loop through some amount of time, calculate the field for traps and find max/min info, save it into an array */
-			for(int p = 0; p < maxPos; p+= zstep){
+			for(double p = 0; p < maxPos; p+= zstep){
 				/*loop through all the positions with 'zstep' increments to calculate the field for each position in the trap */
 				field[i][t][p] = calField(t, p);
 			}
