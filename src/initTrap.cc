@@ -17,7 +17,7 @@ void traps :: initTrap(int num){
   currShape = 1;
 
   for(i = 0; i < zStepNum; i++){
-    tzField[i] = backCoil - 0.5 * centerPos + i * zStep;
+    tzField[i][0] = backCoil - 0.5 * centerPos + i * zStep;
   }
   
 }

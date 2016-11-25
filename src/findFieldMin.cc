@@ -1,14 +1,13 @@
-#include<iostream>
-#include<cmath>
-
-
+// findFieldMin.cc
+/* Find the field minimium based on giving 2D array of field distribution
+   return the index minimium field in the array */
 
 int findMinIdx(double *p, lb, ub){
   int i, j, min, idx;
   min = 0;
   idx = 0;
   for(i = lb; i<ub +1; i++){
-    if( p[i] < max){
+    if( p[i] < min){
       min = p[i];
       idx = i;
     }
@@ -20,20 +19,21 @@ int findMinIdx(double *p, lb, ub){
 }
 
 
-double findFieldMin(double *tField){
-  int i, j, length, sign, lb,ub;
-  length = sizeof(tField) / sizeof(tField[0]); // Calcu the row size of tField
+double findFieldMin(double *tField){ 
+  int i, j, length, sign, lb,ub;//
+  length = sizeof(tField) / sizeof(*tField + *(tField +1)); // Calcu the row size of tField
   double diff1[length-1], diff2[length-2]; // 1st and 2nd order of differential 
   int minIdx;
   double minField, temp;
   minIdx = 0;
   
   for(i = 0; i < length-1; i ++ ){ // calcu the 1st and 2nd differential 
-    diff1[i] = (tField[i+1][1] -  tField[i][1]) / (tField[i+1][0] - tField[i][0]);
-    if(i > 0){
-      diff2[i-1] = (diff1[i] - diff2[i-1]) / (tField[i][0] - tField[i-1][0]);
-    }
+    diff1[i] = (*(tField + (i+1) * 2 + 1) - *(tField + (i) * 2 + 1))  / (*(tField + (i+1) * 2 + 0) - *(tField + (i) * 2 + 0)); // 1st order diff
+    if(i > 0)
+      diff2[i-1] = (diff1[i] - diff2[i-1]) / (*(tField + (i) * 2 + 0) - *(tField + (i-1) * 2 + 0));
   }
+
+	      
 
   sign = diff2[0] < 0 ? -1 : 1;
   lb = 0; // lower bound
@@ -51,13 +51,13 @@ double findFieldMin(double *tField){
 	temp = finMinIdx(tField, lb, ub);
 	if (tField[temp][1] < minField){
 	  minIdx = findMinIdx(tField, lb, ub);
-	  minField = tField[temp][1];
+	  minField = *(tField + temp * 2 + 1);
 	  lb = i;
 	  sign = -1 * sign;
 	}
       }
     }
   }
-}
 
-return(minIdx)
+  return(minIdx);
+}		      
