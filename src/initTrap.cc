@@ -10,7 +10,7 @@ void traps :: initTrap(int num){
   trapNum = num;
   tStart = tPeriod * (trapNum - 1);
   tEnd = tStart + tPeriod;
-  centerPos =  geoOverlapRatio * geoR * num; // trap center 
+  centerPos =  trapNum * (1 - geoOverlapRatio) * geoAspectRatio * geoR; // trap center 
   frontCoil = centerPos + geoAspectRatio * geoR * 0.5;
   backCoil = centerPos - geoAspectRatio * geoR * 0.5;
   zStart = backCoil - 0.5 * centerPos;

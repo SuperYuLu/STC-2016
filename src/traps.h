@@ -14,7 +14,7 @@ class traps{
   bool isOn(double t);
   double calCurrent(double t, int shape);
   double calField(double currI);
-  double genFieldMatix();
+  double genFieldMatrix();
 };
 
 

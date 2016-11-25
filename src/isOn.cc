@@ -5,7 +5,10 @@ bool traps :: isOn(double t):
     clock = t;
     return(true);
   }
-  else return(false);
+  else{
+    clock = 0.0;
+    return(false);
+  }
 }
 
 

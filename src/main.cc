@@ -1,22 +1,33 @@
+// main.cc 
 #include<iostream>
 #include<fstream>
 #include<cmath>
 #include<string>
 #include "const.h"
+#include "traps.h"
 #include "main.h"
 
 int mian(){
+  traps alltraps[totTraps];
   double totTime = totTraps * tPeriod;
-  double totDist = totTraps * geoAspectRatio * geoR;
+  double totDist = (totTraps+1) * geoAspectRatio * geoR - (totTraps - 1) * geoOverlapRatio * geoAspectRatio * geoR;
+  double totalField[int(totDist / zStep) + 1][2]; // initialize 2D array with position and total field
 
-  traps alltraps[totTraps]; // asign arry alltraps to store all trap info
-  totalField[int(totTime / tStep) + 1][int(totDist / zStep) + 1]; // initialize 2D array with time and position by adding time and position for each trap
-  for(int i = 1; i < totTraps; i++){
+  // init traps
+  for(int i = 0; i < totTraps; i++){
     alltraps[i].initTrap(i+1);
   }
-	for(i=1; i < totTraps; i++){
-	  
-		for(int t = 0; t < sometime; t=t+tStep){
+
+  
+  for(int i=0; i < int(totTime / tStep); i++){
+    t = i * tStep;
+    for (int j = 0; j < totTraps; j++) if(alltraps[j].isOn(t)) alltraps[j].genFieldMatrix();
+    calTotalField(traps *alltraps, double *totalField);
+    
+    
+
+    
+    for(int t = 0; t < sometime; t=t+tStep){
 			/* loop through some amount of time, calculate the field for traps and find max/min info, save it into an array */
 			for(int p = 0; p < maxPos; p+= zstep){
 				/*loop through all the positions with 'zstep' increments to calculate the field for each position in the trap */
