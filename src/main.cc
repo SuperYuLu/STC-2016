@@ -3,13 +3,13 @@
 #include "const.h"
 #include "traps.h"
 #include "main.h"
-
-int mian(){
+#include <iostream>
+int main(){
   
   traps alltraps[totTraps]; //Array of class traps
   double totTime = totTraps * tPeriod; //Total time for simulation
-  double totalField[int(totDist / zStep) + 1][2]; // 2D array with position and total field
   double totDist = (totTraps+1) * geoAspectRatio * geoR - (totTraps - 1) * geoOverlapRatio * geoAspectRatio * geoR; // Total space distance for simulation
+  double totalField[int(totDist / zStep) + 1][2]; // 2D array with position and total field
   int tMinIdx[int(totTime / tStep) + 1]; //Field minimium index at different time
   
   // init traps
@@ -17,7 +17,8 @@ int mian(){
     alltraps[i].initTrap(i+1);
   }
 
-  // Simulation 
+  // Simulation
+  double t; // time
   for(int i=0; i < int(totTime / tStep) + 1; i++){ // Loop through time
     t = i * tStep;
     
@@ -26,12 +27,16 @@ int mian(){
 	alltraps[j].genFieldMatrix();
     
     // Calculate total field by direct adding up
-    calTotalField(traps *alltraps, (double *)totalField, int(totDist / zStep) + 1);
+    calTotalField(alltraps,(double *)totalField, int(totDist / zStep) + 1);
     
     // Find total field minimium by return index
-    tMinIdx[i] = calFieldMin((double *) totalField);
+    tMinIdx[i] = findFieldMin((double *) totalField);
+    cleanTrapsField(alltraps);
   }
 
+  for( int m = 0; m < int(totTime / tStep) + 1; m ++){
+    std::cout << tMinIdx[m] << std::endl;
+  }
   
 	// /* further more, vary input parameters see how the result changes */
 	

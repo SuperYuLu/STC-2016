@@ -8,6 +8,7 @@ void traps :: initTrap(int num){
      and front/back coil position
      no returns */
   trapNum = num;
+  clock = 0.0;
   tStart = tPeriod * (trapNum - 1);
   tEnd = tStart + tPeriod;
   centerPos =  trapNum * (1 - geoOverlapRatio) * geoAspectRatio * geoR; // trap center 
@@ -16,7 +17,7 @@ void traps :: initTrap(int num){
   zStart = backCoil - 0.5 * centerPos;
   currShape = 1;
 
-  for(i = 0; i < zStepNum; i++){
+  for(int i = 0; i < zStepNum; i++){
     tzField[i][0] = backCoil - 0.5 * centerPos + i * zStep;
   }
   

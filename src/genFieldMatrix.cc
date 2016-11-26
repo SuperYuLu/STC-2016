@@ -3,6 +3,7 @@
 #include "const.h"
 
 void traps :: genFieldMatrix(){
+  double I, z;
   I = calCurrent(clock, 1);
   for (int j = 0; j <= zStepNum; z++){
     z = zStart + j + zStep;

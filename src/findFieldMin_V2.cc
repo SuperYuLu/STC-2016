@@ -4,7 +4,24 @@
 
 int findMinIdx(double *p, int lb, int ub){
   int i, j, min, idx;
-  min = 0;
+  min = 1000;
+  idx = 0;
+  for(i = lb; i<ub +1; i++){
+    if( p[i] < min){
+      min = p[i];
+      idx = i;
+    }
+    else{
+      continue;
+    }
+  }
+  return (idx);
+}
+
+
+int findMaxIdx(double *p, int lb, int ub){
+  int i, j, max, idx;
+  max = -1000;
   idx = 0;
   for(i = lb; i<ub +1; i++){
     if( p[i] < min){

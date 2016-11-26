@@ -1,9 +1,9 @@
 // calTotalField.cc
-#include <cstdlib>
+#include <cmath>
 #include "const.h"
 #include "traps.h"
 
-void calTotalField(traps *alltraps, double *totalField, int totSteps){
+void calTotalField(traps alltraps[], double *totalField, int totSteps){
   // totalField is a 2D array
   double z, B, zStart;
   int idx;
@@ -19,7 +19,7 @@ void calTotalField(traps *alltraps, double *totalField, int totSteps){
 	B += alltraps[n].tzField[idx][1];
       }
     }
-    *(totalField + i * 2 + 1) = std::abs(B);
+    *(totalField + i * 2 + 1) =B;// std::abs(B);
   }
 }
 
