@@ -21,21 +21,23 @@ int main(){
   double t; // time
   for(int i=0; i < int(totTime / tStep) + 1; i++){ // Loop through time
     t = i * tStep;
-    
-    for (int j = 0; j < totTraps; j++) // Loop through traps
+    cleanTrapsField(alltraps); // zero field value before calculate
+    for (int j = 0; j < totTraps; j++){ // Loop through traps
+      std::cout << "ison" << alltraps[j].isOn(t) << std::endl;
       if(alltraps[j].isOn(t) == true) // Calculate field if trap is on
 	alltraps[j].genFieldMatrix();
+    }
     
     // Calculate total field by direct adding up
     calTotalField(alltraps,(double *)totalField, int(totDist / zStep) + 1);
     
     // Find total field minimium by return index
     tMinIdx[i] = findFieldMin((double *) totalField);
-    cleanTrapsField(alltraps);
+    
   }
 
   for( int m = 0; m < int(totTime / tStep) + 1; m ++){
-    std::cout << tMinIdx[m] << std::endl;
+    //std::cout << tMinIdx[m] << std::endl;
   }
   
 	// /* further more, vary input parameters see how the result changes */

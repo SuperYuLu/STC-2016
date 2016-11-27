@@ -2,7 +2,8 @@
 #include <cmath>
 #include "const.h"
 #include "traps.h"
-
+#include <iostream>
+#define pi 3.1415926
 double traps :: calCurrent(double t, int shape){
   /*
     Function used to genetrate the current according to
@@ -15,7 +16,7 @@ double traps :: calCurrent(double t, int shape){
   double tt;
   tt = fmod(t, tPeriod);
   
-  if(shape == 1) currI = Imax * sin(tt);
+  if(shape == 1) currI = Imax * sin( pi * tt / tPeriod);
   else if (shape == 2){
     if(tt <= tPeriod / 2.0){
       currI = 2 * Imax / tPeriod * tt;
@@ -24,5 +25,6 @@ double traps :: calCurrent(double t, int shape){
       currI = 2 * Imax / tPeriod * (tPeriod - tt);
     }
   }
+  std::cout << "current: " << currI << std::endl;
   return(currI);
 }

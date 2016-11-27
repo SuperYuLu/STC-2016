@@ -47,10 +47,11 @@ int findFieldMin(double *tField){
     
     else{
       if((i - lb) > 2 && sign < 0){ // 2:far enough
+	lb = ub;
 	ub = i;
 	temp = findMinIdx(tField, lb, ub);
 	if (*(tField + temp * 2 + 1)< minField){
-	  minIdx = findMinIdx(tField, lb, ub);
+	  minIdx = temp;
 	  minField = *(tField + temp * 2 + 1);
 	  lb = i;
 	  sign = -1 * sign;

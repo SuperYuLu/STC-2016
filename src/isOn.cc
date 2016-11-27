@@ -2,7 +2,7 @@
 #include "traps.h"
 
 bool traps :: isOn(double t){
-  if (t >= tEnd && t <= tStart){
+  if (t <= tEnd && t >= tStart){
     clock = t;
     return(true);
   }

@@ -11,14 +11,14 @@ void traps :: initTrap(int num){
   clock = 0.0;
   tStart = tPeriod * (trapNum - 1);
   tEnd = tStart + tPeriod;
-  centerPos =  trapNum * (1 - geoOverlapRatio) * geoAspectRatio * geoR; // trap center 
+  centerPos =  0.5 * geoAspectRatio * geoR + 0.5 * trapNum * geoAspectRatio * geoR - (trapNum - 1) * geoOverlapRatio * geoAspectRatio * geoR; // offset + trap center position - overlap part
   frontCoil = centerPos + geoAspectRatio * geoR * 0.5;
   backCoil = centerPos - geoAspectRatio * geoR * 0.5;
-  zStart = backCoil - 0.5 * centerPos;
+  zStart = backCoil - 0.5 * geoAspectRatio * geoR;
   currShape = 1;
 
   for(int i = 0; i < zStepNum; i++){
-    tzField[i][0] = backCoil - 0.5 * centerPos + i * zStep;
+    tzField[i][0] = zStart  + i * zStep;
   }
   
 }

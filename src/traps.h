@@ -1,6 +1,7 @@
 // traps.h
 #include "const.h"
-
+#ifndef __TRAPS_H_INCLUDED__
+#define __TRAPS_H_INCLUDED__
 class traps{
  public:
   int trapNum;
@@ -17,5 +18,5 @@ class traps{
   void genFieldMatrix();
   void cleanField();
 };
-
+#endif
 
