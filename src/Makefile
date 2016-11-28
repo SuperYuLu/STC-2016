@@ -36,7 +36,7 @@ findFieldMin_V2.o: findFieldMin_V2.cc
 	$(CC) $(CFLAGS) $<
 cleanTrapsField.o: cleanTrapsField.cc traps.h const.h
 	$(CC) $(CFLAGS) $<
-main.o: main.cc main.h const.h traps.h
+main.o: main.cc main.h const.h traps.h 
 	$(CC) $(CFLAGS) $<
 #main.h: traps.h
 # Phony targets

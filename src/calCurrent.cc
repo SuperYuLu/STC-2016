@@ -25,6 +25,6 @@ double traps :: calCurrent(double t, int shape){
       currI = 2 * Imax / tPeriod * (tPeriod - tt);
     }
   }
-  std::cout << "current: " << currI << std::endl;
+  // std::cout << "current: " << currI << std::endl;
   return(currI);
 }
