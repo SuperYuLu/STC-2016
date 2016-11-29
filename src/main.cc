@@ -21,12 +21,14 @@ int main(){
   double t; // time
   for(int i=0; i < (int(totTime / tStep) +1 ); i++){ // Loop through time
     t = i * tStep;
+    std::cout<<"==="<< t * 1e6 << " us /"<< totTime * 1e6 << " us===" << std::endl;
     cleanTrapsField(alltraps); // zero field value before calculate
+
     for (int j = 0; j < totTraps; j++){ // Loop through traps
-      
-      //std::cout << "ison" << alltraps[j].isOn(t) << std::endl;
-      
+      //std::cout << "BackCoil " << alltraps[j].backCoil;
+      //std::cout << "frontCoil " << alltraps[j].frontCoil << std::endl;
       if(alltraps[j].isOn(t) == true) // Calculate field if trap is on
+	std::cout << "trapNum: " << alltraps[j].trapNum << " isOn " << alltraps[j].isOn(t) << std::endl;
 	alltraps[j].genFieldMatrix();
     }
     
@@ -36,6 +38,7 @@ int main(){
     // Find total field minimium by return index
     totMinIdx[i] = findFieldMin_V2((double *) totalField, totDist / zStep + 1);
     std::cout << "totMinIdx: " << totMinIdx[i] << std::endl;
+    
   }
 
   for( int m = 0; m < int(totTime / tStep) + 1; m ++){

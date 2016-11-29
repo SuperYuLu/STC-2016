@@ -5,8 +5,6 @@
 class traps{
  public:
   int trapNum;
-  // private:
-  int a = 1+1;
   double tStart, tEnd, zStart, clock;
   double centerPos, frontCoil, backCoil; // Center position of trap
   int currShape; // Current shape: 1 for sine, 2 for triangle
@@ -17,6 +15,7 @@ class traps{
   double calField(double currI, double pos);
   void genFieldMatrix();
   void cleanField();
+   
 };
 #endif
 

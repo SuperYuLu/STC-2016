@@ -4,6 +4,6 @@
 
 void traps :: cleanField(){
   for(int i = 0; i < zStepNum; i++){
-    tzField[i][1] = 0;
+    tzField[i][1] = 0.0;
   }
 }

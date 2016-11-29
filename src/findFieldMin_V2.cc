@@ -15,7 +15,7 @@ int findMinIdx(double *p, int len){
       min = p[i];
       idx = i;
     }
-    std::cout << p[i]<< ","<<min<< "," << idx << std::endl;
+    //std::cout << p[i]<< ","<<min<< "," << idx << std::endl;
   }
   
   return (idx);
@@ -54,7 +54,8 @@ int findFieldMin_V2(double *tField, int rowNum){
   int i;
   double field1D[rowNum];
   int minIdx, maxIdx, zeroIdx;
-  std::cout << "rowNum: " << rowNum << std::endl;
+  //std::cout << "rowNum: " << rowNum << std::endl;
+  zeroIdx = 0;
   for(i = 0; i < rowNum; i++){
     field1D[i] = *(tField + i * 2 + 1);
   }

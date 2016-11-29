@@ -9,9 +9,10 @@ void traps :: initTrap(int num){
      no returns */
   trapNum = num;
   clock = 0.0;
-  tStart = tPeriod * (trapNum - 1);
+  tStart = tPeriod * (trapNum - 1) - tOverlapRatio * (trapNum - 1) * tPeriod;
   tEnd = tStart + tPeriod;
-  centerPos =  0.5 * geoAspectRatio * geoR + 0.5 * trapNum * geoAspectRatio * geoR - (trapNum - 1) * geoOverlapRatio * geoAspectRatio * geoR; // offset + trap center position - overlap part
+  //centerPos =  0.5 * geoAspectRatio * geoR + 0.5 * trapNum * geoAspectRatio * geoR - (trapNum - 1) * geoOverlapRatio * geoAspectRatio * geoR; // offset + trap center position - overlap part
+  centerPos = trapNum * geoAspectRatio * geoR - (trapNum - 1) * geoOverlapRatio * geoAspectRatio * geoR; 
   frontCoil = centerPos + geoAspectRatio * geoR * 0.5;
   backCoil = centerPos - geoAspectRatio * geoR * 0.5;
   zStart = backCoil - 0.5 * geoAspectRatio * geoR;
