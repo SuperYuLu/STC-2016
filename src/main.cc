@@ -25,11 +25,16 @@ int main(){
     cleanTrapsField(alltraps); // zero field value before calculate
 
     for (int j = 0; j < totTraps; j++){ // Loop through traps
-      //std::cout << "BackCoil " << alltraps[j].backCoil;
-      //std::cout << "frontCoil " << alltraps[j].frontCoil << std::endl;
-      if(alltraps[j].isOn(t) == true) // Calculate field if trap is on
+      if(alltraps[j].isOn(t) == true){ // Calculate field if trap is on
 	std::cout << "trapNum: " << alltraps[j].trapNum << " isOn " << alltraps[j].isOn(t) << std::endl;
 	alltraps[j].genFieldMatrix();
+      }
+      //alltraps[j].genFieldMatrix();
+    }
+
+    
+    for( int k = 0; k < totDist / zStep + 1; k++){
+      std::cout << "P= " << alltraps[0].tzField[k][0] << " B= " << alltraps[0].tzField[k][1] << "   ";
     }
     
     // Calculate total field by direct adding up
@@ -41,6 +46,8 @@ int main(){
     
   }
 
+  
+  
   for( int m = 0; m < int(totTime / tStep) + 1; m ++){
     //std::cout << totMinIdx[m] << std::endl;
   }

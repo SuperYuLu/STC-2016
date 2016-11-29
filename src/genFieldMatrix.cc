@@ -8,7 +8,6 @@ void traps :: genFieldMatrix(){
   I = calCurrent(clock, 1);
   for (int j = 0; j < zStepNum; j++){
     z = zStart + j * zStep;
-    // std::cout << "z= " << z << std::endl;
     tzField [j][1] = calField(I, z);
   }
 }

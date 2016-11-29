@@ -1,7 +1,7 @@
 # Options
 CC = g++
 DEBUG = -g
-LFLAGS = 
+LFLAGS = -Wall
 CFLAGS = -c -O3
 
 # Files
@@ -12,10 +12,6 @@ OBJS = $(patsubst %.cc,%.o,$(SRCS))
 HEADS = main.h traps.h const.h
 
 # Rules
-#all: $(SRCS) $(EXE)
-
-#show:
-#	echo $(OBJS)
 $(EXE): $(OBJS)
 	$(CC) $(LFLAGS) $^ -o $@
 initTrap.o: initTrap.cc #const.h traps.h
@@ -38,10 +34,10 @@ cleanTrapsField.o: cleanTrapsField.cc traps.h const.h
 	$(CC) $(CFLAGS) $<
 main.o: main.cc main.h const.h traps.h 
 	$(CC) $(CFLAGS) $<
-#main.h: traps.h
+
 # Phony targets
 clean:
-	\rm *.o *~
+	\rm *.o run
 tar:
 	tar cfv 
 

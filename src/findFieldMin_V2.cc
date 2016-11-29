@@ -62,8 +62,8 @@ int findFieldMin_V2(double *tField, int rowNum){
   
   minIdx = findMinIdx(field1D, rowNum);
   maxIdx = findMaxIdx(field1D, rowNum);
-  std::cout << "minIdx: " << minIdx << std::endl;
-  std::cout << "maxIdx: " << maxIdx << std::endl;
+  std::cout << "minIdx: " << minIdx << " value: " << field1D[minIdx] << std::endl;
+  std::cout << "maxIdx: " << maxIdx << " value: " << field1D[maxIdx] << std::endl;
   zeroIdx = findFieldZero(field1D, rowNum, minIdx, maxIdx);
   std::cout << "zeroIdx: " << zeroIdx << std::endl;
   return(zeroIdx);

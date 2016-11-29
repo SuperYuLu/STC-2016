@@ -11,19 +11,18 @@ void calTotalField(traps alltraps[], double *totalField, int totSteps){
   
   for(int i = 0; i < totSteps; i++){ // Loop through absolute positions
     z = i * zStep;
-    B = 0;
+    B = 0.0;
     
     *(totalField + i * 2 + 0) = z; // can be optimized 
     for( int n = 0; n < totTraps; n++){ // Loop through all traps 
       zStart = alltraps[n].zStart;
-      // if ((zStart <= z) && ((zStart + 2 * geoAspectRatio * geoR) >=z)){
-      // 	idx = (z - zStart) / zStep; 
-      // 	B += alltraps[n].tzField[idx][1];
-      // 	if (z == 10e-3) std::cout << "Middle B: " << alltraps[n].tzField[idx][1] <<std::endl;
-      // }
-      idx = (z - zStart) / zStep; 
-      B += alltraps[n].tzField[idx][1];
-      if (z == 10e-3) std::cout << "Middle B: " << alltraps[n].tzField[idx][1] <<std::endl;
+
+      if ((zStart <= z) && ((zStart + 2 * geoAspectRatio * geoR) >=z)){
+      	idx = (z - zStart) / zStep; 
+      	B += alltraps[n].tzField[idx][1];
+      }
+      
+      if (z == 5e-3) std::cout << "Middle B: " << alltraps[n].tzField[idx][1] <<std::endl;
     }
     
     // std::cout << "z = " << z << "Btot = " << B << std::endl;
