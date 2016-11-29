@@ -42,12 +42,15 @@ int findFieldZero(double *p, int len,int lb, int ub){
   idx =  0;
   min = 100.0;
   for (i = lb; i < ub; i++){
+    // std::cout << "i number" << i << std::endl;
     if(std::abs(p[i]) < min){
-      min = p[i];
+      //std::cout << "p[i]: " << p[i] << " min" << min << std::endl;
+      min = std::abs(p[i]);
       idx = i;
     }
   }
-  return(idx + lb);
+  //std::cout << "idx: " << idx << " lb: " << lb << std::endl;
+  return(idx);
 }
 
 int findFieldMin_V2(double *tField, int rowNum){ 
@@ -65,6 +68,6 @@ int findFieldMin_V2(double *tField, int rowNum){
   std::cout << "minIdx: " << minIdx << " value: " << field1D[minIdx] << std::endl;
   std::cout << "maxIdx: " << maxIdx << " value: " << field1D[maxIdx] << std::endl;
   zeroIdx = findFieldZero(field1D, rowNum, minIdx, maxIdx);
-  std::cout << "zeroIdx: " << zeroIdx << std::endl;
+  //std::cout << "zeroIdx: " << zeroIdx << std::endl;
   return(zeroIdx);
 }		      

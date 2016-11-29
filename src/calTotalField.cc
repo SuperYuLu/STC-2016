@@ -22,7 +22,7 @@ void calTotalField(traps alltraps[], double *totalField, int totSteps){
       	B += alltraps[n].tzField[idx][1];
       }
       
-      if (z == 5e-3) std::cout << "Middle B: " << alltraps[n].tzField[idx][1] <<std::endl;
+      //if (z == 5e-3) std::cout << "Middle B: " << alltraps[n].tzField[idx][1] <<std::endl;
     }
     
     // std::cout << "z = " << z << "Btot = " << B << std::endl;

@@ -17,8 +17,8 @@ double traps :: calCurrent(double t, int shape){
   double currI;
  
   double tt;
-  tt = fmod(t, tPeriod);
-  // if(tt = 50e-6) std::cout << "50us current: " << currI << std::endl;
+  tt = fmod(t - tStart, tPeriod);
+  
   if(shape == 1) currI = Imax * sin( pi * tt / tPeriod);
   
   else if (shape == 2){
@@ -29,6 +29,6 @@ double traps :: calCurrent(double t, int shape){
       currI = 2 * Imax / tPeriod * (tPeriod - tt);
     }
   }
-  
+  //if(tt = 50e-6) std::cout << "tStart: " << tStart*1e6 << " us" << " 50us current: " << currI << std::endl;
   return(currI);
 }

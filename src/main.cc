@@ -33,8 +33,9 @@ int main(){
     }
 
     
-    for( int k = 0; k < totDist / zStep + 1; k++){
-      std::cout << "P= " << alltraps[0].tzField[k][0] << " B= " << alltraps[0].tzField[k][1] << "   ";
+    for( int k = 0; k < zStepNum; k++){
+      //std::cout << "P= " << alltraps[1].tzField[k][0] << " B= " << alltraps[1].tzField[k][1] << "   " << std::endl;
+      //std::cout << "P= " << alltraps[0].tzField[k][0] << " B= " << alltraps[0].tzField[k][1] << "   " << std::endl;
     }
     
     // Calculate total field by direct adding up
