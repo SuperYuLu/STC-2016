@@ -1,7 +1,7 @@
 # Options
 CC = g++
 DEBUG = -g
-LFLAGS = -Wall
+#LFLAGS = -Wall
 CFLAGS = -c -O3
 
 # Files

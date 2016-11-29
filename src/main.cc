@@ -26,7 +26,7 @@ int main(){
 
     for (int j = 0; j < totTraps; j++){ // Loop through traps
       if(alltraps[j].isOn(t) == true){ // Calculate field if trap is on
-	std::cout << "trapNum: " << alltraps[j].trapNum << " isOn " << alltraps[j].isOn(t) << std::endl;
+	std::cout << "trapNum: " << alltraps[j].trapNum << " is On " << std::endl;
 	alltraps[j].genFieldMatrix();
       }
       //alltraps[j].genFieldMatrix();
