@@ -44,30 +44,7 @@ int main(){
     // Find total field minimium by return index
     totMinIdx[i] = findFieldMin_V2((double *) totalField, totDist / zStep + 1);
     std::cout << "totMinIdx: " << totMinIdx[i] << std::endl;
-    
+    csvWrite(t, int(totDist / zStep) +1, (double *) totalField);
   }
 
-  
-  
-  for( int m = 0; m < int(totTime / tStep) + 1; m ++){
-    //std::cout << totMinIdx[m] << std::endl;
-  }
-  
-	// /* further more, vary input parameters see how the result changes */
-	
-	// ofstream totalFieldDatafile;
-	// totalFieldDatafile.open("totalFieldDatafile.csv")
-	// // for each row
-	// for (int i=0;i<maxTime;i++){
-	// 	// print first column's element
-	// 	totalFieldDatafile << totalField[i][0];
-
-	// 	// print remaining columns
-	// 	for (int j=1;j<maxPos;j++){
-	// 		totalFieldDatafile << ", " << totalField[i][j];
-	// 	}
-
-	// 	// print newline between rows
-	// 	totalFieldDatafile << endl;
-	// }
 }
