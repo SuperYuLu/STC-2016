@@ -17,7 +17,7 @@ void calTotalField(traps alltraps[], double *totalField, int totSteps){
     for( int n = 0; n < totTraps; n++){ // Loop through all traps 
       zStart = alltraps[n].zStart;
 
-      if ((zStart <= z) && ((zStart + 2 * geoAspectRatio * geoR) >=z)){
+      if ((zStart <= z) && ((zStart + 4 * geoAspectRatio * geoR) >=z)){
       	idx = (z - zStart) / zStep; 
       	B += alltraps[n].tzField[idx][1];
       }

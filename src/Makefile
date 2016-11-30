@@ -38,9 +38,11 @@ main.o: main.cc main.h const.h traps.h
 	$(CC) $(CFLAGS) $<
 
 # Phony targets
+plot:
+	python3 plotAll.py
 clean:
 	rm *.o run
 clear:
-	rm -r ../dat
+	rm * ../dat/
 tar:
 	tar cfv 
