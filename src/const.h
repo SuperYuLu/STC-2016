@@ -10,7 +10,7 @@ const double geoOverlapRatio = 0.5; // geoOverlapRatio 0~1, 0 for not overlap, 1
 const double zStep = 0.01 * geoR;  // Spatial step(resolution)
 const double tPeriod = 50e-6; // Current pulse period, 50 us
 const double tStep = tPeriod / 100.0; // Time step(resolution)
-const double tOverlapRatio = 0.5; // The time overlap = tOverlapRatio * tPeriod
+const double tOverlapRatio = 0.9; // The time overlap = tOverlapRatio * tPeriod
 const double Imax = 500.0; // Current maxmium = 500 A
 const int geoWindings = 16; 
 const int totTraps = 5;
