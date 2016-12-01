@@ -1,0 +1,140 @@
+\pdfminorversion=4
+\documentclass[10pt, xcolor=dvipsnames]{beamer}
+\setcounter{tocdepth}{1} % hide subsubsection in table of contents
+\usetheme{Montpellier}
+%\usetheme{CambridgeUS}
+%\usecolortheme{lily}
+\setbeamertemplate{footline}
+{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.5ex,dp=0ex,center]{footlinerule}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.6ex,dp=0ex,center]{empty}
+  \end{beamercolorbox}%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=2ex,center]{author in head/foot}%
+    \usebeamerfont{author in
+head/foot}%
+  \insertshortauthor\hspace{1em}(\insertshortinstitute)
+  \end{beamercolorbox}%
+  % \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=2ex,center]{title in head/foot}%
+  %   \usebeamerfont{title in head/foot}\insertshorttitle
+  % \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=2ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}%
+\usepackage{appendixnumberbeamer}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[american voltages]{circuitikz}
+\usepackage{fourier}
+\usepackage{braket}
+\setbeamercovered{transparent}
+%\usepackage{animate}
+\usepackage{movie15}
+\usetikzlibrary{decorations.pathmorphing, decorations.pathreplacing,shapes.multipart,angles,quotes,fadings,shapes.callouts,arrows}
+% \title[Magnetic slowing of entrained high space density supersonic Lithium atoms]{Magnetic slower for entrained high space density supersonic cold Lithium atoms}
+\title[Magnetic Field Oscillation]{Magnetic Field Oscillation in Adiabatic Slower System for Cold Atom Physics}
+\author[Yu Lu, Nitish Mittal, Xingyao Wang]{Yu Lu, Graduate student, Dept. of Physics \\  Nitish Mittal, Graduate student, Colllege of Pharmacy \\ Xingyao Wang, Graduate student, CSEM}
+
+\institute{University of Texas at Austin}
+\date{December 1st, 2016}
+%\setbeamercovered{dynamic}
+\begin{document}
+% --------------------------------------------- title page -----------------------------------------
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+\section[Introduction]{Adiabatic slower in Cold Atom Physics}
+\begin{frame}
+  \frametitle{Adiabatic slower and Field Oscillation}
+
+  \begin{tikzpicture}[x=2mm,y=2mm, overlay]
+      % ----------------------------------1---------------------------------
+      % draw atoms low
+    \onslide<3>{
+      \begin{scope}[scale=0.5,shift={(0,-20)}] 
+        \shadedraw[ball color = red!90] (5,0) circle (1);
+        \shadedraw[ball color = red!90] (4.5,1.5) circle (1);
+        \shadedraw[ball color = red!90] (6,1.5) circle (1);
+        \shadedraw[ball color = red!90] (7,0.5) circle (1);
+        \shadedraw[ball color = red!90] (5,3) circle (1);
+        \shadedraw[ball color = red!90] (7,3) circle (1);
+        \draw[->, line width=2pt, blue]  (7,2) -- (15,2) node[below]{$V_{atom}$};
+        \draw[->, line width=2pt, red]  (2,7) -- (6,7) node[above]{$V_{trap}$};
+      \end{scope}
+    }
+    \onslide<2-3>{
+      \begin{scope}[shift={(-6,-16)}, line width=1,color=red!50]
+        \draw[out=0, in=180] (1,5) to (2,5);
+        \draw[out=60] (2,5) parabola bend (5,15)(6,14);
+        \draw (6,14) to (8,6);
+        \draw(8,6) parabola bend (9,5)(10,6);
+        \draw[out=0](10,6) parabola bend  (14,15)(15,14);
+        \draw[out=300,in=180] (15,14) to  (19,5);
+      \end{scope}
+    }
+    
+
+    
+    \onslide<4>{
+      \begin{scope}[shift={(4,-10)}]
+        \begin{scope}[scale=0.5]
+          \shadedraw[ball color = green!60] (5,0) circle (1);
+          \shadedraw[ball color = green!60] (4.5,1.5) circle (1);
+          \shadedraw[ball color = green!60] (6,1.5) circle (1);
+          \shadedraw[ball color = green!60] (7,0.5) circle (1);
+          \shadedraw[ball color = green!60] (5,3) circle (1);
+          \shadedraw[ball color = green!60] (7,3) circle (1);
+          \draw[->, line width=2pt, blue]  (7,2) -- (15,2) node[below]{$V_{atom}$};
+          \draw[->, line width=2pt, red]  (2,7) -- (6,7) node[above]{$V_{trap}$};
+        \end{scope}
+        \begin{scope}[shift={(-6,-6)}, line width=1,color=red!50]
+          \draw[out=0, in=180] (1,5) to (2,5);
+          \draw[out=60] (2,5) parabola bend (5,15)(6,14);
+          \draw (6,14) to (8,6);
+          \draw(8,6) parabola bend (9,5)(10,6);
+          \draw[out=0](10,6) parabola bend  (14,15)(15,14);
+          \draw[out=300,in=180] (15,14) to  (19,5);
+        \end{scope}
+      \end{scope}
+    }
+
+    \onslide<5>{
+      \begin{scope}[shift={(8,-10)}]
+        \begin{scope}[scale=0.5]
+          \shadedraw[ball color = blue!60] (5,0) circle (1);
+          \shadedraw[ball color = blue!60] (4.5,1.5) circle (1);
+          \shadedraw[ball color = blue!60] (6,1.5) circle (1);
+          \shadedraw[ball color = blue!60] (7,0.5) circle (1);
+          \shadedraw[ball color = blue!60] (5,3) circle (1);
+          \shadedraw[ball color = blue!60] (7,3) circle (1);
+          \draw[->, line width=2pt, blue]  (7,2) -- (15,2) node[below]{$V_{atom}$};
+          \draw[->, line width=2pt, red]  (2,7) -- (6,7) node[above]{$V_{trap}$};
+        \end{scope}
+        \begin{scope}[shift={(-6,-6)}, line width=1,color=red!50]
+          \draw[out=0, in=180] (1,5) to (2,5);
+          \draw[out=60] (2,5) parabola bend (5,15)(6,14);
+          \draw (6,14) to (8,6);
+          \draw(8,6) parabola bend (9,5)(10,6);
+          \draw[out=0](10,6) parabola bend  (14,15)(15,14);
+          \draw[out=300,in=180] (15,14) to  (19,5);
+        \end{scope}
+      \end{scope}
+    }
+
+    \node<2-> at (5,5){
+      %\graphicspath{{./images/}}
+      \includegraphics[width=0.5\textwidth]{AntiHelmhotzSym}
+    };
+    \node<2-> at (5,12)[fill=blue!20] {Anti-Helmholtz Coil};
+  \end{tikzpicture}
+\end{frame}
+\end{document}
+  
