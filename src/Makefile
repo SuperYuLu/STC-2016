@@ -40,8 +40,9 @@ main.o: main.cc main.h const.h traps.h
 	$(CC) $(CFLAGS) $<
 
 # Phony targets
-plot:
+plotall:
 	python3 plotAll.py
+plotmin:
 	python3 plotMin.py
 clean:
 	rm *.o run

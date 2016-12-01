@@ -4,7 +4,7 @@
 #include<sstream>
 
 
-void csvWriteAll(double t, int rowNum, double *field2D){
+void csvWriteAll(double t, int rowNum, double *field2D, int *idx){
   std::string path="../dat/";
   std::string filename;
   std::ostringstream convert;

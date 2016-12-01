@@ -9,7 +9,8 @@ int main(){
   double totTime = totTraps * tPeriod - (totTraps - 1) * tOverlapRatio * tPeriod; //Total time for simulation
   double totDist = (totTraps+3) * geoAspectRatio * geoR - (totTraps - 1) * geoOverlapRatio * geoAspectRatio * geoR; // Total space distance for simulation
   double totalField[int(totDist / zStep) + 1][2]; // 2D array with position and total field
-  int totMinIdx[int(totDist / zStep) + 1];
+  int totMinIdx;
+  double minTZField[int( totTime / tStep) + 1][3]; // |time|min pos| min Field
   std:: cout << "totDist" << totDist<< std::endl;
   
   // init traps
@@ -23,6 +24,7 @@ int main(){
     t = i * tStep;
     std::cout<<"=== "<< t * 1e6 << " us /"<< totTime * 1e6 << " us ===" << std::endl;
     cleanTrapsField(alltraps); // zero field value before calculate
+
     for (int j = 0; j < totTraps; j++){ // Loop through traps
       if(alltraps[j].isOn(t) == true){ // Calculate field if trap is on
 	std::cout << "trapNum: " << alltraps[j].trapNum << " is On " << std::endl;
@@ -34,10 +36,12 @@ int main(){
     calTotalField(alltraps,(double *)totalField, int(totDist / zStep) + 1);
     
     // Find total field minimium by return index
-    totMinIdx[i] = findFieldMin_V2((double *) totalField, totDist / zStep + 1);
-    std::cout << "totMinIdx: " << totMinIdx[i] << std::endl;
+    totMinIdx = findFieldMin_V2((double *) totalField, totDist / zStep + 1);
+    minTZField[i][0] = t;  // time
+    minTZField[i][1] = totalField[totMinIdx][0]; // min position
+    minTZField[i][2] = totalField[totMinIdx][1]; // min field
+    std::cout << "totMinIdx: " << totMinIdx << std::endl;
     csvWriteAll(t, int(totDist / zStep) + 1, (double *) totalField);
-    csvWriteMin(totTime / tStep + 1, totMinIdx, (double *) totalField);
   }
-  
+  csvWriteMin(totTime / tStep + 1, (double *) minTZField);
 }

@@ -3,14 +3,12 @@
 #include<fstream>
 #include<cmath>
 #include "const.h"
-//#include<sstream>
 
 
-void csvWriteMin(int tNum, int *idx, double *field2D){
+
+void csvWriteMin(int tNum, double *field2D){ // |time|min pos|min Field|
   std::string path="../dat/";
   std::string filename;
-  //std::ostringstream convert;
-  //convert << t*1e6;
   filename = "minField";
   filename = path + filename + ".csv";
 
@@ -18,9 +16,9 @@ void csvWriteMin(int tNum, int *idx, double *field2D){
   minFieldDatafile.open(filename);
 
   for(int i = 0; i < tNum; i++){
-    minFieldDatafile << i * tStep << ","; // 1st column, time
-    minFieldDatafile << std::abs(*(field2D + idx[i] * 2 + 0))<<","; // 2nd column, min pos
-    minFieldDatafile << std::abs(*(field2D + idx[i] * 2 + 1))<< std::endl; // 2nd column, min field
+    minFieldDatafile << *(field2D + i * 3 + 0)<< ","; // 1st column, time
+    minFieldDatafile << std::abs(*(field2D + i * 3 + 1))<<","; // 2nd column, min pos
+    minFieldDatafile << std::abs(*(field2D + i * 3 + 2))<< std::endl; // 3rd column, min field
   }
   
   minFieldDatafile.close();

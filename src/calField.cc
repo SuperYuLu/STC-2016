@@ -11,11 +11,15 @@ double traps :: calField(double currI, double pos){
     by Yu 2016/11/20
   */
   
-  double field = 0;
+  double field = 0.0;
   double u0 = 1.256637e-6; // Magnetic constant
   //field = u0 * currI * geoWindings * pow(geoR,2) * 0.5 * (1 / (pow(pow(pos - frontCoil,2) + pow(geoR,2),3/2)) - 1 / (pow(pow(pos - backCoil,2) + pow(geoR,2) ,3/2)));
-  field += u0 * currI * geoWindings * pow(geoR,2) /2  / (pow((pow((pos - frontCoil), 2) + pow(geoR,2)),3/2));
-  field -= u0 * currI * geoWindings * pow(geoR,2) /2  / (pow((pow((pos - backCoil),  2) + pow(geoR,2)),3/2));
+  //std::cout << "field front : "<< u0 * currI * geoWindings * pow(geoR,2) /2  << std::endl;
+  
+  field += u0 * currI * geoWindings * pow(geoR,2) /2  / (pow((pow((pos - frontCoil), 2) + pow(geoR,2)),3.0/2));
+  field -=  u0 * currI * geoWindings * pow(geoR,2) /2  / (pow((pow((pos - backCoil),  2) + pow(geoR,2)),3.0/2));
+  //std::cout << "current " << currI << "   "<< "pos-backcoil " << pos - backCoil << "pos-frontCoil  "<< pos-frontCoil << " all" << (pow((pow((pos - frontCoil),  2) + pow(geoR,2)),3/2))<< std::endl;
+  
   // std::cout << "field: " << field << std::endl;
   //std::cout <<"****" <<  pos << " B " << field << std::endl;
   return(field);

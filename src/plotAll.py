@@ -17,7 +17,7 @@ if os.path.exists(folder):
             plt.title('Magnetic field distribution at time' + f[:-4])
             plt.xlabel('Position [mm]')
             plt.ylabel('Magnetic field [T]')
-            plt.ylim([0, 0.005])
+            plt.ylim([0, 1.2])
             p.savefig(folder + f[:-4] + '.png', dpi=150)
             print("--- Plot saved in :  " + folder + f[:-4] +'.png ---')
             plt.close(p)

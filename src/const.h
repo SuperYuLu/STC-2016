@@ -13,7 +13,7 @@ const double tStep = tPeriod / 40.0; // Time step(resolution)
 const double tOverlapRatio = 0.5; // The time overlap = tOverlapRatio * tPeriod
 const double Imax = 500.0; // Current maxmium = 500 A
 const int geoWindings = 16; 
-const int totTraps = 2;
+const int totTraps = 20;
 // 1.5 | 1 | 1.5 
 const int zStepNum = int(4 * geoAspectRatio * geoR / zStep); // Space step num in a single trap 
 #endif
