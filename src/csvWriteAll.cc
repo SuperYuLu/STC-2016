@@ -2,7 +2,7 @@
 #include<iostream>
 #include<fstream>
 #include<sstream>
-
+#include<cmath>
 
 void csvWriteAll(double t, int rowNum, double *field2D){
   std::string path="../dat/";
@@ -10,6 +10,9 @@ void csvWriteAll(double t, int rowNum, double *field2D){
   std::ostringstream convert;
   convert << t*1e6;
   filename = convert.str();
+  if(fmod(t * 1e6,1) < 0.001){
+    filename = filename + ".0";
+  }
   filename = path + filename + ".csv";
 
   std::ofstream totalFieldDatafile;

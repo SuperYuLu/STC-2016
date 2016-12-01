@@ -44,6 +44,9 @@ plotall:
 	python3 plotAll.py
 plotmin:
 	python3 plotMin.py
+gif:
+	convert -delay 10 $(for i in $(seq 0 2.5 150); do echo ${i}.png; done) -loop 0 animated.gif
+
 clean:
 	rm *.o run
 clear:
