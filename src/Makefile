@@ -7,7 +7,7 @@ CFLAGS = -c -O3
 # Files
 EXE = run
 SRCS = main.cc initTrap.cc isOn.cc calCurrent.cc calField.cc genFieldMatrix.cc\
-cleanField.cc calTotalField.cc findFieldMin_V2.cc cleanTrapsField.cc csvWrite.cc
+cleanField.cc calTotalField.cc findFieldMin_V2.cc cleanTrapsField.cc csvWriteAll.cc csvWriteMin.cc
 OBJS = $(patsubst %.cc,%.o,$(SRCS))
 HEADS = main.h traps.h const.h
 
@@ -32,7 +32,9 @@ findFieldMin_V2.o: findFieldMin_V2.cc
 	$(CC) $(CFLAGS) $<
 cleanTrapsField.o: cleanTrapsField.cc traps.h const.h
 	$(CC) $(CFLAGS) $<
-csvWrite.o: csvWrite.cc
+csvWriteAll.o: csvWriteAll.cc
+	$(CC) $(CFLAGS) $<
+csvWriteMin.o: csvWriteMin.cc
 	$(CC) $(CFLAGS) $<
 main.o: main.cc main.h const.h traps.h 
 	$(CC) $(CFLAGS) $<
@@ -40,9 +42,10 @@ main.o: main.cc main.h const.h traps.h
 # Phony targets
 plot:
 	python3 plotAll.py
+	python3 plotMin.py
 clean:
 	rm *.o run
 clear:
-	rm -r ../dat
+	rm  ../dat/*
 tar:
 	tar cfv 

@@ -1,10 +1,10 @@
-// csvWrite.cc
+// csvWriteAll.cc
 #include<iostream>
 #include<fstream>
 #include<sstream>
 
 
-void csvWrite(double t, int rowNum, double *field2D){
+void csvWriteAll(double t, int rowNum, double *field2D){
   std::string path="../dat/";
   std::string filename;
   std::ostringstream convert;
