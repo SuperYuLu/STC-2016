@@ -1,0 +1,14 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Description of purpose}{}% 2
+\BOOKMARK [1][-]{section.3}{Program structure}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{C++ program}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Python3 program}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Shell script}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{MakeFile}{section.3}% 7
+\BOOKMARK [1][-]{section.4}{Running the program}{}% 8
+\BOOKMARK [1][-]{section.5}{Result and Discussion}{}% 9
+\BOOKMARK [2][-]{subsection.5.1}{Magnetic field at different time}{section.5}% 10
+\BOOKMARK [2][-]{subsection.5.2}{Magnetic field oscillation \204 Sine and Triangle current}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.3}{Geometry overlap effects}{section.5}% 12
+\BOOKMARK [2][-]{subsection.5.4}{Time overlap effects}{section.5}% 13
+\BOOKMARK [1][-]{section.6}{Summary}{}% 14
